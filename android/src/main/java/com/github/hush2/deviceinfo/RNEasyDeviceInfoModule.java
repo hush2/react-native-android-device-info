@@ -193,50 +193,50 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
 
         EasyDeviceMod easyDeviceMod = new EasyDeviceMod(reactContext);
 
-        WritableMap dev = Arguments.createMap();
+        WritableMap device = Arguments.createMap();
 
-        dev.putString("screenDisplayID", easyDeviceMod.getScreenDisplayID());
-        dev.putString("buildVersionCodename", easyDeviceMod.getBuildVersionCodename());
-        dev.putString("buildVersionIncremental", easyDeviceMod.getBuildVersionIncremental());
-        dev.putInt("buildVersionSDK", easyDeviceMod.getBuildVersionSDK());
-        dev.putString("buildID", easyDeviceMod.getBuildID());
-        dev.putString("manufacturer", easyDeviceMod.getManufacturer());
-        dev.putString("model", easyDeviceMod.getModel());
-        dev.putString("osCodename", easyDeviceMod.getOSCodename());
-        dev.putString("osVersion", easyDeviceMod.getOSVersion());
-        dev.putString("phoneNo", easyDeviceMod.getPhoneNo());
-        dev.putString("radioVer", easyDeviceMod.getRadioVer());
-        dev.putString("product", easyDeviceMod.getProduct());
-        dev.putString("device", easyDeviceMod.getDevice());
-        dev.putString("board", easyDeviceMod.getBoard());
-        dev.putString("hardware", easyDeviceMod.getHardware());
-        dev.putString("bootloader", easyDeviceMod.getBootloader());
-        dev.putString("fingerprint", easyDeviceMod.getFingerprint());
-        dev.putBoolean("isDeviceRooted", easyDeviceMod.isDeviceRooted());
-        dev.putString("buildBrand", easyDeviceMod.getBuildBrand());
-        dev.putString("buildHost", easyDeviceMod.getBuildHost());
-        dev.putString("buildTags", easyDeviceMod.getBuildTags());
-        dev.putDouble("buildTime", easyDeviceMod.getBuildTime());
-        dev.putString("buildUser", easyDeviceMod.getBuildUser());
-        dev.putString("buildVersionRelease", easyDeviceMod.getBuildVersionRelease());
+        device.putString("screenDisplayID", easyDeviceMod.getScreenDisplayID());
+        device.putString("buildVersionCodename", easyDeviceMod.getBuildVersionCodename());
+        device.putString("buildVersionIncremental", easyDeviceMod.getBuildVersionIncremental());
+        device.putInt("buildVersionSDK", easyDeviceMod.getBuildVersionSDK());
+        device.putString("buildID", easyDeviceMod.getBuildID());
+        device.putString("manufacturer", easyDeviceMod.getManufacturer());
+        device.putString("model", easyDeviceMod.getModel());
+        device.putString("osCodename", easyDeviceMod.getOSCodename());
+        device.putString("osVersion", easyDeviceMod.getOSVersion());
+        device.putString("phoneNo", easyDeviceMod.getPhoneNo());
+        device.putString("radioVer", easyDeviceMod.getRadioVer());
+        device.putString("product", easyDeviceMod.getProduct());
+        device.putString("device", easyDeviceMod.getDevice());
+        device.putString("board", easyDeviceMod.getBoard());
+        device.putString("hardware", easyDeviceMod.getHardware());
+        device.putString("bootloader", easyDeviceMod.getBootloader());
+        device.putString("fingerprint", easyDeviceMod.getFingerprint());
+        device.putBoolean("isDeviceRooted", easyDeviceMod.isDeviceRooted());
+        device.putString("buildBrand", easyDeviceMod.getBuildBrand());
+        device.putString("buildHost", easyDeviceMod.getBuildHost());
+        device.putString("buildTags", easyDeviceMod.getBuildTags());
+        device.putDouble("buildTime", easyDeviceMod.getBuildTime());
+        device.putString("buildUser", easyDeviceMod.getBuildUser());
+        device.putString("buildVersionRelease", easyDeviceMod.getBuildVersionRelease());
 
         @DeviceType
         int deviceType = easyDeviceMod.getDeviceType(getCurrentActivity());
         switch (deviceType) {
             case DeviceType.WATCH:
-                dev.putString("deviceType", "watch");
+                device.putString("deviceType", "watch");
                 break;
             case DeviceType.PHONE:
-                dev.putString("deviceType", "phone");
+                device.putString("deviceType", "phone");
                 break;
             case DeviceType.PHABLET:
-                dev.putString("deviceType", "phablet");
+                device.putString("deviceType", "phablet");
                 break;
             case DeviceType.TABLET:
-                dev.putString("deviceType", "tablet");
+                device.putString("deviceType", "tablet");
                 break;
             case DeviceType.TV:
-                dev.putString("deviceType", "tv");
+                device.putString("deviceType", "tv");
                 break;
         }
 
@@ -244,16 +244,16 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
         int phoneType = easyDeviceMod.getPhoneType();
         switch (phoneType) {
             case PhoneType.CDMA:
-                dev.putString("phoneType", "CDMA");
+                device.putString("phoneType", "CDMA");
                 break;
             case PhoneType.GSM:
-                dev.putString("phoneType", "GSM");
+                device.putString("phoneType", "GSM");
                 break;
             case PhoneType.NONE:
-                dev.putString("phoneType", "NONE");
+                device.putString("phoneType", "NONE");
                 break;
             default:
-                dev.putString("phoneType", "Uknown");
+                device.putString("phoneType", "Uknown");
                 break;
         }
 
@@ -261,18 +261,18 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
         int orientationType = easyDeviceMod.getOrientation(getCurrentActivity());
         switch (orientationType) {
             case OrientationType.LANDSCAPE:
-                dev.putString("orientation", "landscape");
+                device.putString("orientation", "landscape");
                 break;
             case OrientationType.PORTRAIT:
-                dev.putString("orientation", "portrait");
+                device.putString("orientation", "portrait");
                 break;
             case OrientationType.UNKNOWN:
             default:
-                dev.putString("orientation", "uknown");
+                device.putString("orientation", "uknown");
                 break;
         }
 
-        p.resolve(dev);
+        p.resolve(device);
     }
 
     @ReactMethod
@@ -297,34 +297,34 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
 
         EasyConfigMod easyConfigMod = new EasyConfigMod(reactContext);
 
-        WritableMap display = Arguments.createMap();
+        WritableMap config = Arguments.createMap();
 
-        display.putBoolean("isRunningOnEmulator", easyConfigMod.isRunningOnEmulator());
-        display.putDouble("time", easyConfigMod.getTime());
-        display.putDouble("uptime", easyConfigMod.getUpTime());
-        display.putString("formattedTime", easyConfigMod.getFormattedTime());
-        display.putDouble("currentDate", easyConfigMod.getCurrentDate().getTime());
-        display.putString("formattedDate", easyConfigMod.getFormattedDate());
-        display.putBoolean("hasSdCard", easyConfigMod.hasSdCard());
+        config.putBoolean("isRunningOnEmulator", easyConfigMod.isRunningOnEmulator());
+        config.putDouble("time", easyConfigMod.getTime());
+        config.putDouble("uptime", easyConfigMod.getUpTime());
+        config.putString("formattedTime", easyConfigMod.getFormattedTime());
+        config.putDouble("currentDate", easyConfigMod.getCurrentDate().getTime());
+        config.putString("formattedDate", easyConfigMod.getFormattedDate());
+        config.putBoolean("hasSdCard", easyConfigMod.hasSdCard());
 
         @RingerMode
         int ringermode = easyConfigMod.getDeviceRingerMode();
         switch (ringermode) {
             case RingerMode.NORMAL:
-                display.putString("ringerMode", "Normal");
+                config.putString("ringerMode", "Normal");
                 break;
             case RingerMode.VIBRATE:
-                display.putString("ringerMode", "Vibrate");
+                config.putString("ringerMode", "Vibrate");
                 break;
             case RingerMode.SILENT:
-                display.putString("ringerMode", "Silent");
+                config.putString("ringerMode", "Silent");
                 break;
             default:
-                display.putString("ringerMode", "-");
+                config.putString("ringerMode", "-");
                 break;
         }
 
-        p.resolve(display);
+        p.resolve(config);
     }
 
     @ReactMethod
