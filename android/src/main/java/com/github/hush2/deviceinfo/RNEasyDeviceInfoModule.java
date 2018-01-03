@@ -21,13 +21,14 @@ import github.nisrulz.easydeviceinfo.base.EasyDeviceMod;
 import github.nisrulz.easydeviceinfo.base.EasyDisplayMod;
 import github.nisrulz.easydeviceinfo.base.EasyFingerprintMod;
 import github.nisrulz.easydeviceinfo.base.EasyMemoryMod;
+import github.nisrulz.easydeviceinfo.base.EasyNfcMod;
 import github.nisrulz.easydeviceinfo.base.EasySensorMod;
+import github.nisrulz.easydeviceinfo.base.EasySimMod;
 import github.nisrulz.easydeviceinfo.base.OrientationType;
 import github.nisrulz.easydeviceinfo.base.PhoneType;
 import github.nisrulz.easydeviceinfo.base.RingerMode;
 
 public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
-
 
     private final ReactApplicationContext reactContext;
 
@@ -202,8 +203,8 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
         dev.putString("model", easyDeviceMod.getModel());
         dev.putString("osCodename", easyDeviceMod.getOSCodename());
         dev.putString("osVersion", easyDeviceMod.getOSVersion());
-//        dev.putString("phoneNo", easyDeviceMod.getPhoneNo());
-//        dev.putString("radioVer", easyDeviceMod.getRadioVer());
+        dev.putString("phoneNo", easyDeviceMod.getPhoneNo());
+        dev.putString("radioVer", easyDeviceMod.getRadioVer());
         dev.putString("product", easyDeviceMod.getProduct());
         dev.putString("device", easyDeviceMod.getDevice());
         dev.putString("board", easyDeviceMod.getBoard());
@@ -282,7 +283,7 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
 
         display.putString("resolution", easyDisplayMod.getResolution());
         display.putString("density", easyDisplayMod.getDensity());
-//        display.putString("displayXYCoordinates", easyDisplayMod.getDisplayXYCoordinates());
+        // display.putString("displayXYCoordinates", easyDisplayMod.getDisplayXYCoordinates());
         display.putDouble("refreshRate", easyDisplayMod.getRefreshRate());
         display.putDouble("physicalSize", easyDisplayMod.getPhysicalSize());
 
@@ -326,15 +327,36 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void getInfo(Promise p) {
+    public void getSimInfo(Promise p) {
 
-        EasyDisplayMod easyDisplayMod = new EasyDisplayMod(reactContext);
+        EasySimMod easySimMod = new EasySimMod(reactContext);
 
-        WritableMap display = Arguments.createMap();
+        WritableMap sim = Arguments.createMap();
 
-        display.putString("resolution", easyDisplayMod.getResolution());
+        sim.putString("imsi", easySimMod.getIMSI());
+        sim.putString("serial", easySimMod.getSIMSerial());
+        sim.putString("country", easySimMod.getCountry());
+        sim.putString("carrier", easySimMod.getCarrier());
+        sim.putBoolean("isSimNetworkLocked", easySimMod.isSimNetworkLocked());
+        //sim.putString("activeMultiSimInfo", easySimMod.getActiveMultiSimInfo());
+        sim.putBoolean("isMultiSim", easySimMod.isMultiSim());
+        sim.putInt("numberOfActiveSim", easySimMod.getNumberOfActiveSim());
 
-        p.resolve(display);
+        p.resolve(sim);
     }
+
+    @ReactMethod
+    public void getNfcInfo(Promise p) {
+
+        EasyNfcMod easyNfcMod = new EasyNfcMod(reactContext);
+
+        WritableMap nfc = Arguments.createMap();
+
+        nfc.putBoolean("isNfcPresent", easyNfcMod.isNfcPresent());
+        nfc.putBoolean("isNfcEnabled", easyNfcMod.isNfcEnabled());
+
+        p.resolve(nfc);
+    }
+
 
 }
