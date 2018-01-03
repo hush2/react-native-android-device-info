@@ -21,6 +21,7 @@ import github.nisrulz.easydeviceinfo.base.EasyDeviceMod;
 import github.nisrulz.easydeviceinfo.base.EasyDisplayMod;
 import github.nisrulz.easydeviceinfo.base.EasyFingerprintMod;
 import github.nisrulz.easydeviceinfo.base.EasyMemoryMod;
+import github.nisrulz.easydeviceinfo.base.EasyNetworkMod;
 import github.nisrulz.easydeviceinfo.base.EasyNfcMod;
 import github.nisrulz.easydeviceinfo.base.EasySensorMod;
 import github.nisrulz.easydeviceinfo.base.EasySimMod;
@@ -356,6 +357,24 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
         nfc.putBoolean("isNfcEnabled", easyNfcMod.isNfcEnabled());
 
         p.resolve(nfc);
+    }
+
+    @ReactMethod
+    public void getNetworkInfo(Promise p) {
+
+        EasyNetworkMod easyNetworkMod = new EasyNetworkMod(reactContext);
+
+        WritableMap net = Arguments.createMap();
+
+        net.putBoolean("isNetworkAvailable", easyNetworkMod.isNetworkAvailable());
+        net.putBoolean("isWifiEnabled", easyNetworkMod.isWifiEnabled());
+        net.putString("iPv4Address", easyNetworkMod.getIPv4Address());
+        net.putString("iPv6Address", easyNetworkMod.getIPv6Address());
+        net.putString("wifiSSID", easyNetworkMod.getWifiSSID());
+        net.putString("wifiBSSID", easyNetworkMod.getWifiBSSID());
+        net.putString("wifiLinkSpeed", easyNetworkMod.getWifiLinkSpeed());
+
+        p.resolve(net);
     }
 
 
