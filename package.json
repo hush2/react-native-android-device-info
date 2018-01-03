@@ -1,0 +1,12 @@
+{
+  "name": "react-native-android-device-info",
+  "version": "0.0.1",
+  "description": "React Native library for Android to get device information (uses EasyDeviceInfo).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "hush2",
+  "license": "ISC"
+}
