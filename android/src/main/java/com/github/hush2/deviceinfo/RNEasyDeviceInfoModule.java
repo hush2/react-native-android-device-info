@@ -21,6 +21,7 @@ import github.nisrulz.easydeviceinfo.base.EasyConfigMod;
 import github.nisrulz.easydeviceinfo.base.EasyDeviceMod;
 import github.nisrulz.easydeviceinfo.base.EasyDisplayMod;
 import github.nisrulz.easydeviceinfo.base.EasyFingerprintMod;
+import github.nisrulz.easydeviceinfo.base.EasyLocationMod;
 import github.nisrulz.easydeviceinfo.base.EasyMemoryMod;
 import github.nisrulz.easydeviceinfo.base.EasyNetworkMod;
 import github.nisrulz.easydeviceinfo.base.EasyNfcMod;
@@ -405,6 +406,22 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
                 break;
         }
         p.resolve(net);
+    }
+
+    @SuppressLint("MissingPermission")
+    @ReactMethod
+    public void getLocationInfo(Promise p) {
+
+        EasyLocationMod easyLocationMod = new EasyLocationMod(reactContext);
+
+        WritableMap loc = Arguments.createMap();
+
+        double[] ll = easyLocationMod.getLatLong();
+
+        loc.putString("latt", String.valueOf(ll[0]));
+        loc.putString("long", String.valueOf(ll[1]));
+
+        p.resolve(loc);
     }
 
 
