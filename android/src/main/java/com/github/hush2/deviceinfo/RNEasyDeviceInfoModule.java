@@ -1,5 +1,6 @@
 package com.github.hush2.deviceinfo;
 
+import android.annotation.SuppressLint;
 import android.hardware.Sensor;
 
 import com.facebook.react.bridge.Arguments;
@@ -25,6 +26,7 @@ import github.nisrulz.easydeviceinfo.base.EasyNetworkMod;
 import github.nisrulz.easydeviceinfo.base.EasyNfcMod;
 import github.nisrulz.easydeviceinfo.base.EasySensorMod;
 import github.nisrulz.easydeviceinfo.base.EasySimMod;
+import github.nisrulz.easydeviceinfo.base.NetworkType;
 import github.nisrulz.easydeviceinfo.base.OrientationType;
 import github.nisrulz.easydeviceinfo.base.PhoneType;
 import github.nisrulz.easydeviceinfo.base.RingerMode;
@@ -327,6 +329,7 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
         p.resolve(config);
     }
 
+    @SuppressLint("MissingPermission")
     @ReactMethod
     public void getSimInfo(Promise p) {
 
@@ -373,7 +376,34 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
         net.putString("wifiSSID", easyNetworkMod.getWifiSSID());
         net.putString("wifiBSSID", easyNetworkMod.getWifiBSSID());
         net.putString("wifiLinkSpeed", easyNetworkMod.getWifiLinkSpeed());
+        net.putString("wifiMAC", easyNetworkMod.getWifiMAC());
 
+        @NetworkType
+        int networkType = easyNetworkMod.getNetworkType();
+        switch (networkType) {
+            case NetworkType.CELLULAR_UNKNOWN:
+                net.putString("networkType", "Unknown");
+                break;
+            case NetworkType.CELLULAR_UNIDENTIFIED_GEN:
+                net.putString("networkType", "Cellular Unidentified Generation");
+                break;
+            case NetworkType.CELLULAR_2G:
+                net.putString("networkType", "Cellular 2G");
+                break;
+            case NetworkType.CELLULAR_3G:
+                net.putString("networkType", "Cellular 3G");
+                break;
+            case NetworkType.CELLULAR_4G:
+                net.putString("networkType", "Cellular 4G");
+                break;
+            case NetworkType.WIFI_WIFIMAX:
+                net.putString("networkType", "WIFI/WIFIMAX");
+                break;
+            case NetworkType.UNKNOWN:
+            default:
+                net.putString("networkType", "Unknown");
+                break;
+        }
         p.resolve(net);
     }
 
