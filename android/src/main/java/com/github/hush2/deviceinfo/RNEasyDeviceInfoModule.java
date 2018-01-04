@@ -18,6 +18,7 @@ import github.nisrulz.easydeviceinfo.base.ChargingVia;
 import github.nisrulz.easydeviceinfo.base.DeviceType;
 import github.nisrulz.easydeviceinfo.base.EasyBatteryMod;
 import github.nisrulz.easydeviceinfo.base.EasyConfigMod;
+import github.nisrulz.easydeviceinfo.base.EasyCpuMod;
 import github.nisrulz.easydeviceinfo.base.EasyDeviceMod;
 import github.nisrulz.easydeviceinfo.base.EasyDisplayMod;
 import github.nisrulz.easydeviceinfo.base.EasyFingerprintMod;
@@ -422,6 +423,41 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
         loc.putString("long", String.valueOf(ll[1]));
 
         p.resolve(loc);
+    }
+
+
+    @ReactMethod
+    public void getAbiInfo(Promise p) {
+
+        EasyCpuMod easyCpuMod = new EasyCpuMod();
+
+        WritableMap cpu = Arguments.createMap();
+
+        StringBuilder supportABI = new StringBuilder();
+        for (String abis : easyCpuMod.getSupportedABIS()) {
+            supportABI.append(abis).append("\n");
+        }
+        String supportedABI = supportABI.toString();
+
+        cpu.putString("supportedABI", supportedABI);
+
+        StringBuilder support32ABI = new StringBuilder();
+        for (String abis : easyCpuMod.getSupported32bitABIS()) {
+            support32ABI.append(abis).append("\n");
+        }
+        String supported32ABI = support32ABI.toString();
+
+        cpu.putString("supported32ABI", supported32ABI);
+
+        StringBuilder support64ABI = new StringBuilder();
+        for (String abis : easyCpuMod.getSupported64bitABIS()) {
+            support64ABI.append(abis).append("\n");
+        }
+        String supported64ABI = support64ABI.toString();
+
+        cpu.putString("supported64ABI", supported64ABI);
+
+        p.resolve(cpu);
     }
 
 
