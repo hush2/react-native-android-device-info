@@ -1,4 +1,4 @@
-package com.github.hush2.deviceinfo;
+package com.github.hush2.RNEasyDeviceInfo;
 
 import android.annotation.SuppressLint;
 import android.hardware.Sensor;

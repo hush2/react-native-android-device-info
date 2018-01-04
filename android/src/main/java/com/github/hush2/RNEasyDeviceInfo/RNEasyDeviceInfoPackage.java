@@ -1,4 +1,4 @@
-package com.github.hush2.deviceinfo;
+package com.github.hush2.RNEasyDeviceInfo;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
