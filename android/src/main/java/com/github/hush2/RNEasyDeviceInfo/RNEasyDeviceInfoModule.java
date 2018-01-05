@@ -93,7 +93,6 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
                 batt.putString("chargingSource", "-");
                 break;
         }
-
         p.resolve(batt);
     }
 
@@ -118,7 +117,6 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
 
             sensorArray.pushMap(sensorMap);
         }
-
         p.resolve(sensorArray);
     }
 
@@ -295,7 +293,6 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
         p.resolve(display);
     }
 
-
     @ReactMethod
     public void getConfigInfo(Promise p) {
 
@@ -331,7 +328,6 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
         p.resolve(config);
     }
 
-    @SuppressLint("MissingPermission")
     @ReactMethod
     public void getSimInfo(Promise p) {
 
@@ -409,7 +405,6 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
         p.resolve(net);
     }
 
-    @SuppressLint("MissingPermission")
     @ReactMethod
     public void getLocationInfo(Promise p) {
 
@@ -424,7 +419,6 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
 
         p.resolve(loc);
     }
-
 
     @ReactMethod
     public void getAbiInfo(Promise p) {
@@ -459,6 +453,4 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
 
         p.resolve(cpu);
     }
-
-
 }
