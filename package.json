@@ -1,12 +1,16 @@
 {
   "name": "react-native-android-device-info",
-  "version": "0.0.1",
-  "description": "React Native library for Android to get device information (uses EasyDeviceInfo).",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "0.1.0",
+  "description": "React Native library for Android to get device information.",
+  "main": "index.js", 
+  "keywords": ["android", "react-native", "react native"],
+  "author":  {
+    "name": "hush2",
+    "email": "hush2dev@gmail.com"
   },
-  "keywords": [],
-  "author": "hush2",
-  "license": "ISC"
+  "repository" : { 
+    "type" : "git",
+    "url" : "https://github.com/hush2/react-native-android-device-info.git"
+  },
+  "license": "Apache-2.0"
 }
