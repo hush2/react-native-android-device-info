@@ -32,11 +32,11 @@ import github.nisrulz.easydeviceinfo.base.OrientationType;
 import github.nisrulz.easydeviceinfo.base.PhoneType;
 import github.nisrulz.easydeviceinfo.base.RingerMode;
 
-public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
+public class RNAndroidDeviceInfoModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
 
-    public RNEasyDeviceInfoModule(ReactApplicationContext reactContext) {
+    public RNAndroidDeviceInfoModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
 
