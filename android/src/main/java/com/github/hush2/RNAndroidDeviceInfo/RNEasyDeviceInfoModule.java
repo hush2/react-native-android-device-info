@@ -1,6 +1,5 @@
-package com.github.hush2.RNEasyDeviceInfo;
+package com.github.hush2.RNAndroidDeviceInfo;
 
-import android.annotation.SuppressLint;
 import android.hardware.Sensor;
 
 import com.facebook.react.bridge.Arguments;
@@ -45,7 +44,7 @@ public class RNEasyDeviceInfoModule extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "RNEasyDeviceInfo";
+        return "RNAndroidDeviceInfo";
     }
 
     @ReactMethod

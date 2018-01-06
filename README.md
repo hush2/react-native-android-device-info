@@ -37,13 +37,21 @@ Add required permissions to:
 ```js
 import { NativeModules } from 'react-native'
 
-const device = NativeModules.RNEasyDeviceInfo
+const device = NativeModules.RNAndroidDeviceInfo
 
 device.getBatteryInfo().then((battery) => {
   console.log(battery)
+  /* { batteryHealth: 'Good',
+       chargingSource: '-',
+       batteryVoltage: 4096,
+       batteryTemperature: 25,
+       batteryTechnology: 'Li-ion',
+       isDeviceCharging: false,
+       isBatteryPresent: true,
+       batteryPercentage: 88 }
+  */
 })
 ```
-
 
 ## Demo App
 
