@@ -53,6 +53,22 @@ device.getBatteryInfo().then((battery) => {
 })
 ```
 
+## Implemented APIs
+- **Device** `getDeviceInfo()`
+- **Memory** `getMemoryInfo()`
+- **Battery** `getBatteryInfo()`
+- **Sensors** `getSensorInfo()`
+- **Network** `getNetworkInfo()`
+- **Display** `getDisplayInfo()`
+- **NFC** `getNfcInfo()`
+- **SIM** `getSimInfo()`
+- **Config** `getConfigInfo()`
+- **Location** `getLocationInfo()`
+- **ABI** `getAbiInfo()`
+- **Fingerprint** `getFingerprintInfo()`
+
+Detailed information can be found at the EasyDeviceInfo [Wiki](https://github.com/nisrulz/easydeviceinfo/wiki)
+
 ## Demo App
 
 Please check [Android Device Info](https://github.com/hush2/android-device-info) for a working demo.

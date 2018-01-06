@@ -1,6 +1,6 @@
 {
   "name": "react-native-android-device-info",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "React Native library for Android to get device information.",
   "main": "index.js", 
   "keywords": ["android", "react-native", "react native"],
