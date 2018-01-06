@@ -6,6 +6,8 @@ This library uses [EasyDeviceInfo](https://github.com/nisrulz/easydeviceinfo).
 
 ## Install
 
+[![npm version](https://badge.fury.io/js/react-native-android-device-info.svg)](https://badge.fury.io/js/react-native-android-device-info)
+
 ```shell
 yarn add react-native-android-device-info
 ```
@@ -42,11 +44,11 @@ const device = NativeModules.RNAndroidDeviceInfo
 device.getBatteryInfo().then((battery) => {
   console.log(battery)
   /* { batteryHealth: 'Good',
-       chargingSource: '-',
+       chargingSource: 'AC',
        batteryVoltage: 4096,
        batteryTemperature: 25,
        batteryTechnology: 'Li-ion',
-       isDeviceCharging: false,
+       isDeviceCharging: true,
        isBatteryPresent: true,
        batteryPercentage: 88 }
   */
